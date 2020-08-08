@@ -1,5 +1,12 @@
 # Mã nguồn : Python + Scrapy
-def parse(self, response) có 2 phần: +) Phần đầu thực hiện kiểm tra xem link có phải là bài báo không. Nếu đúng thực hiện việc ghi : link, category, time, title, subtitle, content, source, tags ra file .text +) Nếu không phải thì thực hiện việc gọi callback lại hàm parse. Và trong hàm yield chỉ chọn những link có dạng : "https://vnexpress.net/" hoặc "/".
+
+name :tên của spider và không được đặt các name giống nhau.<br/>
+allowed_domains:vùng cho phép crawl dữ liệu.<br/>
+start_urls:<br/>
+Hàm parse(self,response):hàm gọi để xử lý phản hồi được tải xuống và thực hiện các chức năng:<br/>
+Kiểm tra xem link đó có phải là link cần crawl không (tránh crawl các link rác)<br/>
+Sau khi kiểm tra thì ghi lại :link, category, time, title, subtitle, content, source, tags ra file .tex.<br/>
+yield from : cho phép chỉ tiến hành crawl trên các bài báo có dạng: "https://vnexpress.net/" hoặc "/". và callback lại parse.<br/>
 
 # Các công việc đã thực hiện được: lấy được link, category, thời gian, tiêu đề, tiêu đề con, nội dung, tác giả và tag của một bài viết.
-# Kết quả : đã thu nhập được 9441 bài viết trừ trang https://vnexpress.net/ và các bài viết được đặt trong file vnexpresse.txt nằm trong mục Vnexpresse
+# Kết quả : đã thu nhập được 9441 bài viết trừ trang https://vnexpress.net/ và các bài viết được đặt trong file TuoiTre.txt nằm trong mục Tuoitre
